@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "rsv-timer": "../../components/rsv_timer/rsv_timer"
+  }
+}

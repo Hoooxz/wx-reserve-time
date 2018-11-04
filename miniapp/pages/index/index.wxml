@@ -1,0 +1,20 @@
+<!--index.wxml-->
+<rsv-timer 
+  bind:selectDate="onSelectDate"
+  bind:selectPeriods="onSelectPeriods"
+  propDate="{{givenDate}}"
+  propReservedPeriods="{{reservedperiods}}"
+  propSelectable="{{reservable}}"
+  propLoading="{{loading}}"
+></rsv-timer>
+
+<view class="container test-box">
+  <view wx:if="{{date}}">
+    已选中日期：{{date}}
+  </view>
+  <view wx:if="{{period.start}}">
+    已选中时间段：{{period.start}} - {{period.end}}
+  </view>
+  <button bindtap="onReservable">reservable/disable</button>
+  <button bindtap="onLoading">loading/not</button>
+</view>

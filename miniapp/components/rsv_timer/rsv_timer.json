@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Cal": "./cal/cal",
+    "Period": "./period/period"
+  }
+}

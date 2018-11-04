@@ -1,0 +1,18 @@
+<!--components/rsv_timer/cal.wxml-->
+<view class="box">
+  <view class="calendar-title">
+    <view>{{calTitle}}</view>
+    <view class="calendar-title-arrow-box">
+      <view class="calendar-title-arrow-item" hover-class="calendar-title-arrow-hover" bindtap="switchWeek" data-direction="{{-1}}">{{"<"}}</view>
+      <view class="calendar-title-arrow-item" hover-class="calendar-title-arrow-hover" bindtap="switchWeek" data-direction="{{1}}" >{{">"}}</view>
+    </view>
+  </view>
+  <view class="weekbox">
+    <block wx:for="{{weekNames}}" wx:key="cal_week">
+      <view class="weekDay {{weekdays[index].selected ? 'weekDay-selected' : ''}}">
+        <text>{{item}}</text>
+        <text class="{{ weekdays[index].today ? 'weekDay-today' : ''}}" bindtap="switchDate" data-weekday-index="{{index}}">{{weekdays[index].day}}</text>
+      </view>
+    </block>
+  </view>
+</view>

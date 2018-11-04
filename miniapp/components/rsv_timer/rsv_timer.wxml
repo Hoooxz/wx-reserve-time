@@ -1,0 +1,16 @@
+<!--components/rsv_timer/rsv_timer.wxml-->
+<view>
+
+  <Cal 
+    date="{{propDate}}"
+    bind:switchDate="onSwitchDate"
+    />
+
+  <Period
+    selectedPeriods="{{propSelectedPeriods}}"
+    selectable="{{propSelectable}}"
+    loading="{{propLoading}}"
+    bind:selectPeriods="onSelectPeriods"
+    />
+
+</view>

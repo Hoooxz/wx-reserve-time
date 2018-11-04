@@ -1,0 +1,11 @@
+/**index.wxss**/
+.test-box {
+  font-size: 0.75em;
+}
+
+button {
+  width: auto;
+  min-width: 300rpx;
+  margin: 20rpx auto;
+  font-size: 0.75em;
+}

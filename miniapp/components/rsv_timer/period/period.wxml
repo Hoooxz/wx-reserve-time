@@ -1,0 +1,15 @@
+<!--components/rsv_timer/period.wxml-->
+<view class="periods-container">
+  <view class="loading-mask" wx:if="{{loading}}">
+    <view class="wx-loading"></view>
+  </view>
+  <block wx:for="{{ hourViews }}" wx:for-item="hour_view_line" wx:key="hour_views">
+    <view class="box period-line">
+      <view wx:for="{{hour_view_line}}" wx:for-item="hour" class="period-hour" wx:key="hour_view_line">
+        <text class="hour-title-mask {{ (hour.selected[0] && hour.selected[1]) || (hour.reserved[0] && hour.reserved[1]) ? 'hour-title-used' : '' }}">{{hour.title}}</text>
+        <view class="hour-half hour-half-left  {{hour.reserved[0] ? 'hour-half-reserved' : ''}} {{hour.selected[0] ? 'hour-half-selected' : ''}}" bindtap="onHalfHour"  data-period_i="{{hour.viewIndex * 2}}"></view>
+        <view class="hour-half hour-half-right {{hour.reserved[1] ? 'hour-half-reserved' : ''}} {{hour.selected[1] ? 'hour-half-selected' : ''}}" bindtap="onHalfHour" data-period_i="{{hour.viewIndex * 2 + 1}}"></view>
+      </view>
+    </view>
+  </block>
+</view>
