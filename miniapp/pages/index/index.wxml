@@ -6,7 +6,7 @@
   propReservedPeriods="{{reservedperiods}}"
   propSelectable="{{reservable}}"
   propLoading="{{loading}}"
-></rsv-timer>
+  />
 
 <view class="container test-box">
   <view wx:if="{{date}}">

@@ -1,6 +1,6 @@
 # 预约时间选择器（微信小程序组件）
 
-`wx-reserve-time` 是一个用于时间预约的微信小程序组件，可以 0.5h 为单位进行时间段选择。
+`wx-reserve-time` 是一个用于时间预约的微信小程序组件，可以以 0.5h 为单位进行时间段选择。
 
 ## 使用方法
 
@@ -20,7 +20,7 @@
   bind:selectPeriods="onSelectPeriods"
   propDate="{{date}}"
   propReservedPeriods="{{reservedPeriods}}"
-></rsv-timer>
+  />
 ```
 
 ## 传入参数
@@ -87,6 +87,6 @@
 
 ## Todo
 
-- [ ] 传入参数：已预约时间段可提供特殊标记
+- [ ] 传入参数: 已预约时间段可提供特殊标记
 
 - [ ] 绑定事件: 用户点击已预约时间段
