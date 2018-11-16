@@ -2,6 +2,7 @@
 <rsv-timer 
   bind:selectDate="onSelectDate"
   bind:selectPeriods="onSelectPeriods"
+  bind:reservedPeriod="onReservedPeriod"
   propDate="{{givenDate}}"
   propReservedPeriods="{{reservedperiods}}"
   propSelectable="{{reservable}}"

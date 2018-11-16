@@ -61,7 +61,13 @@ Component({
       this.triggerEvent("selectPeriods", {
         period: e.detail.period
       })
-    }
+    },
+
+    onReservedPeriod(e) {
+      this.triggerEvent("reservedPeriod", {
+        periodId: e.detail.periodId
+      })
+    },
 
   }
 })

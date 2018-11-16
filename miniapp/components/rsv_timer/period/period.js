@@ -125,6 +125,7 @@ Component({
       type: Array,
       observer: function(newVal, oldVal, changedPath) {
         let periodDataArr = InitialPeriodDataArr.concat()  // 此处要进行数组拷贝，否则只是引用的拷贝，会造成InitialPeriodsArr被修改
+        let periodIds = []
 
         for (let i in newVal) {
           let period = newVal[i]
@@ -134,10 +135,12 @@ Component({
           let endIndex = parseInt(endArr[0] - 9) * 2 + (endArr[1] === '30' ? 0 : -1);
           for (let i = startIndex; i <= endIndex; i++) {
             periodDataArr[i] = period.mark ? 3 : 2;
+            periodIds[i] = period.id;
           }
         }
         this.setData({
-          periodDataArr
+          periodDataArr,
+          periodIds,
         })
         this.generateViews(periodDataArr)
       }
@@ -225,11 +228,14 @@ Component({
     onHalfHour(e) {
       // e.target.dataset - {clock, index}
       let that = this
-      let { periodDataArr } = that.data
+      let { periodDataArr, periodIds } = that.data
       let { period_i } = e.target.dataset
 
-      // 若已预定，则直接退出
+      // 若已预定，则将点击的已预约时间段的id冒泡到上层
       if(periodDataArr[period_i] == 2 || periodDataArr[period_i] == 3) {
+        this.triggerEvent('reservedPeriod', {
+          periodId: periodIds[period_i]
+        })
         return;
       }
 
