@@ -48,7 +48,6 @@
   text-align: center;
   border-radius: 10rpx;
   position: relative;
-  /* border: solid 1px black; */
 }
 
 .hour-title-mask {
@@ -60,6 +59,18 @@
   pointer-events:none;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
+}
+
+.period-hour-mark {
+  position: absolute;
+  bottom: -15rpx;
+  left: 50%;
+  right: 50%;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: rgb(236, 93, 98);
+  border-radius: 50%;
+  pointer-events:none;
 }
 
 .hour-title-used {
@@ -90,6 +101,17 @@
 
 .hour-half-selected {
   background-color: #789bfe;
+}
+
+.hour-half-mark::after {
+  content: "";
+  position: absolute;
+  bottom: -15rpx;
+  width: 8rpx;
+  height: 8rpx;
+  background-color: rgb(236, 93, 98);
+  border-radius: 50%;
+  pointer-events:none;
 }
 
 .wx-loading {

@@ -134,7 +134,7 @@ Component({
           let endArr = period.end.split(':')
           let endIndex = parseInt(endArr[0] - 9) * 2 + (endArr[1] === '30' ? 0 : -1);
           for (let i = startIndex; i <= endIndex; i++) {
-            periodDataArr[i] = period.mark ? 3 : 2;
+            periodDataArr[i] = period.mark ? 3 : 2;  // 2-reserved 3-reserved_mark
             periodIds[i] = period.id;
           }
         }
@@ -204,6 +204,14 @@ Component({
         period.reserved[0] = (periodDataArr[i]   == 2 || periodDataArr[i] == 3) ? true : false
         period.selected[1] = (periodDataArr[i+1] == 1) ? true : false
         period.reserved[1] = (periodDataArr[i+1] == 2 || periodDataArr[i+1] == 3) ? true : false
+        period.hourStyle   = (periodDataArr[i] == 3 && periodDataArr[i+1] == 3) ? ' period-hour-mark ' : '';
+        period.style = []
+        period.style[0] = (period.selected[0] ? ' hour-half-selected ' : '') + 
+                          (period.reserved[0] ? ' hour-half-reserved ' : '') + 
+                          ((periodDataArr[i] == 3 && periodDataArr[i+1] != 3) ? ' hour-half-mark ' : '');
+        period.style[1] = (period.selected[1] ? ' hour-half-selected ' : '') + 
+                          (period.reserved[1] ? ' hour-half-reserved ' : '') + 
+                          ((periodDataArr[i] != 3 && periodDataArr[i+1] == 3) ? ' hour-half-mark ' : '');
         period.viewIndex = i / 2
         hourViewLine.push(period)
         if((i+2)%8 == 0) {
